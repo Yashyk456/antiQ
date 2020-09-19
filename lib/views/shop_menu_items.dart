@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
-// import './orders.dart';
 import './add_menu_items.dart';
 import '../widgets/category_item.dart';
 import '../providers/category_items_provider.dart';
 
 class ShopMenuItems extends StatelessWidget {
-  static const routeName = '/shopMenuItems';
+  ShopMenuItems(this.pageController, this.onEdit);
+
+  final PageController pageController;
+  final Function(String) onEdit;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +27,7 @@ class ShopMenuItems extends StatelessWidget {
               itemBuilder: (_, index) => CategoryItem(
                 categoryName: items[index]['categoryName'],
                 categoryItems: items[index]['categoryItems'],
+                onEdit: onEdit,
               ),
               itemCount: items.length,
             ),
