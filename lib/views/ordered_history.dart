@@ -4,7 +4,6 @@ import '../providers/sample_order_data.dart';
 import '../models/order_details.dart';
 
 class OrderHistory extends StatefulWidget {
-  static const routeName = '/orderHistory';
 
   @override
   _OrderHistoryState createState() => _OrderHistoryState();
@@ -14,7 +13,7 @@ class _OrderHistoryState extends State<OrderHistory> {
   List<OrderDetails> item = [];
   List<double> earningPerOrder = [];
   double totalEarnings = 0;
-  final orders = SampleData.fetchAll();
+  final orders = SampleData().orders;
 
   @override
   void initState() {
